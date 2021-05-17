@@ -1,0 +1,13 @@
+export const LOGIN_REQUEST = 'LOGIN_REQUEST';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_ERROR = 'LOGIN_ERROR';
+
+export const SIGN_UP_REQUEST = 'SIGN_UP_REQUEST';
+export const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS';
+export const SIGN_UP_ERROR = 'SIGN_UP_ERROR';
+
+export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+export const LOGOUT_ERROR = 'LOGOUT_ERROR';
+
+export const RESET_AUTH_STATE = 'RESET_AUTH_STATE';
