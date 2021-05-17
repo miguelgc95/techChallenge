@@ -1,0 +1,13 @@
+{
+    "name": "techchallenge",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "git@github.com:miguelgc95/techChallenge.git",
+    "author": "miguelgc95 <miguelgc95@gmail.com>",
+    "license": "MIT",
+    "private": true,
+    "workspaces": [
+        "server",
+        "client"
+    ]
+}
