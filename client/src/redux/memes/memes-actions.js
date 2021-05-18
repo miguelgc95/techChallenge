@@ -5,8 +5,9 @@ export const memesRequest = () => ({
     type: MemesTypes.MEMES_REQUEST,
 });
 
-export const memesSucces = () => ({
+export const memesSucces = memesArray => ({
     type: MemesTypes.MEMES_SUCCES,
+    payload: memesArray,
 });
 
 export const memesRequestError = error => ({
@@ -19,8 +20,7 @@ export function getGiphys() {
         dispatch(memesRequest());
         try {
             const momardos = await getMemes();
-            console.log(momardos.data.data);
-            dispatch(memesSucces());
+            dispatch(memesSucces(momardos.data.data));
         } catch (error) {
             dispatch(memesRequestError(error.message));
         }

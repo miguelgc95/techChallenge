@@ -10,24 +10,5 @@ export function getMemes(method = 'get', limit = 16) {
             'X-Requested-With': 'XMLHttpRequest',
         },
     };
-    console.log(config);
     return axios(config);
 }
-
-// export function getMemes(method = 'get', limit = 16) {
-//     // const config = {
-//     // method,
-//     // url: 'api.giphy.com/v1/gifs/trending',
-//     // ,
-//     // headers: {
-//     //     'Access-Control-Allow-Origin': '*',
-//     // },
-//     // };
-
-//     const url = 'https://api.giphy.com/v1/gifs/trending';
-//     const headers = {
-//         api_key: process.env.REACT_APP_GIPHY_KEY,
-//         limit,
-//     };
-//     return axios.get(url, headers);
-// }

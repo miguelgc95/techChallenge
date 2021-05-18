@@ -2,10 +2,12 @@ import React from 'react';
 
 import Router from './Router';
 
+import Navbar from './components/Navbar';
+
 function App() {
     return (
         <div className="App">
-            <h1>Consume My Meme</h1>
+            <Navbar />
             <Router />
         </div>
     );
