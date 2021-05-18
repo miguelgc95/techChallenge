@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { getGiphys } from '../../redux';
+import { getGiphys } from '../../redux/memes/memes-actions';
+
+import Navbar from '../../components/Navbar';
+import MemesGrid from '../../components/MemesGrid';
 
 function Home() {
     const dispatch = useDispatch();
@@ -10,7 +13,12 @@ function Home() {
         dispatch(getGiphys());
     }, [dispatch]);
 
-    return <h2>Home</h2>;
+    return (
+        <>
+            <Navbar />
+            <MemesGrid />
+        </>
+    );
 }
 
 export default Home;

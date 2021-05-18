@@ -65,21 +65,21 @@ const AuthReducer = (state = AuthInitialState, action) => {
                 },
             };
         }
-        case AuthTypes.SIGN_OUT_REQUEST: {
+        case AuthTypes.LOGOUT_REQUEST: {
             return {
                 ...state,
                 isSigningOut: true,
                 signOutError: null,
             };
         }
-        case AuthTypes.SIGN_OUT_ERROR: {
+        case AuthTypes.LOGOUT_ERROR: {
             return {
                 ...state,
                 isSigningOut: false,
                 signOutError: payload,
             };
         }
-        case AuthTypes.SIGN_OUT_SUCCESS: {
+        case AuthTypes.LOGOUT_SUCCESS: {
             return {
                 ...state,
                 isSigningOut: false,

@@ -1,0 +1,1 @@
+export { getMemes } from './giphy';
