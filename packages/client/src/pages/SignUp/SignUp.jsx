@@ -5,6 +5,8 @@ import { useForm } from 'react-hook-form';
 import { NavLink } from 'react-router-dom';
 import { LOGIN } from '../../routes';
 
+import { signUpWithEmailRequest } from '../../redux/auth/auth-actions';
+
 function SignUp() {
     const {
         register,
@@ -18,15 +20,13 @@ function SignUp() {
     const [password, setPassword] = useState('');
 
     const tryToSubmit = e => {
-        // e.preventDefault(); // I think there is no need to preventDefault when using useForm
-        // dispatch(
-        //     signUp({
-        //  username,
-        //         email,
-        //         password,
-        //     })
-        // );
-        console.log('submm');
+        dispatch(
+            signUpWithEmailRequest({
+                username,
+                email,
+                password,
+            })
+        );
     };
 
     return (
