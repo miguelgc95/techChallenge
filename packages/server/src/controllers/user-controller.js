@@ -3,14 +3,11 @@ import Repo from '../repositories/index.js';
 const UserRepo = new Repo('User');
 
 async function signUp(req, res, next) {
-    console.log(req.user);
     const { uid, email } = req.user;
     const { body } = req;
 
     try {
-        console.log('guay');
         const response = await UserRepo.findOne({ _id: uid });
-        console.log(response);
 
         if (response.error) return res.status(400).send(response);
         if (response.data) return res.status(202).send(response);
@@ -20,7 +17,6 @@ async function signUp(req, res, next) {
             email: email,
             ...body,
         });
-        console.log(user);
 
         if (user.data) return res.status(202).send(user);
     } catch (error) {

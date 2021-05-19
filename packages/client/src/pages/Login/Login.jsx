@@ -24,7 +24,6 @@ function Login() {
         //         password,
         //     })
         // );
-        console.log('submm');
     };
 
     return (

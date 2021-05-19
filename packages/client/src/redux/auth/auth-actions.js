@@ -56,7 +56,6 @@ export function signUpWithEmailRequest(userInfo) {
             const authorization = {
                 Authorization: `Bearer ${user.za}`,
             };
-            console.log(body);
             const { data } = await api.signUp(authorization, body);
             dispatch(signUpSuccess(data.data));
         } catch (error) {
