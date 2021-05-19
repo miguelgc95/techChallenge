@@ -1,4 +1,14 @@
 {
     "name": "server",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^9.0.2",
+        "express": "^4.17.1",
+        "firebase-admin": "^9.8.0",
+        "helmet": "^4.6.0",
+        "loglevel": "^1.7.1",
+        "mongoose": "^5.12.10",
+        "validator": "^13.6.0"
+    }
 }
