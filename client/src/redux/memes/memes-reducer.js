@@ -22,7 +22,6 @@ const memesReducer = (state = memesInitialSatate, action) => {
                 error: false,
                 offset: state.offset + 12,
                 giphyMemes: [...state.giphyMemes, ...payload],
-                // giphyMemes: [...payload],
             };
         case memesTypes.MEMES_ERROR:
             return {

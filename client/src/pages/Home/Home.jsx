@@ -1,7 +1,4 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-
-import { getGiphys } from '../../redux/memes/memes-actions';
+import React from 'react';
 
 import MemesGrid from '../../components/MemesGrid';
 
