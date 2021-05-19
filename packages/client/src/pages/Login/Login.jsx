@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { useForm } from 'react-hook-form';
 import { NavLink } from 'react-router-dom';
@@ -24,7 +24,6 @@ function Login() {
         //         password,
         //     })
         // );
-        console.log('submm');
     };
 
     return (
