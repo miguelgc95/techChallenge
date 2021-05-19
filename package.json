@@ -8,5 +8,11 @@
     "private": true,
     "workspaces": [
         "packages/*"
-    ]
+    ],
+    "scripts": {
+        "dev": "yarn workspaces run dev",
+        "dev:client": "yarn workspace client run start",
+        "dev:server": "yarn workspace server run dev",
+        "build": "yarn workspaces run build"
+    }
 }

@@ -1,6 +1,12 @@
 {
     "name": "server",
     "version": "1.0.0",
+    "type": "module",
+    "private": true,
+    "main": "./src/index.js",
+    "scripts": {
+        "dev": "nodemon --inspect --trace-warnings ./src/index.js"
+    },
     "dependencies": {
         "cors": "^2.8.5",
         "dotenv": "^9.0.2",
@@ -9,6 +15,8 @@
         "helmet": "^4.6.0",
         "loglevel": "^1.7.1",
         "mongoose": "^5.12.10",
+        "morgan": "^1.10.0",
+        "nodemon": "^2.0.7",
         "validator": "^13.6.0"
     }
 }

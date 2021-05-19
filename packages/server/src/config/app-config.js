@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-// import { logger } from '../services/index.js';
+import { logger } from '../services/index.js';
 
 export const {
     NODE_ENV = 'development',
