@@ -42,25 +42,6 @@ class Repository {
         return normalizeDBQuery(Models[this.type].find(filter).lean());
     };
 
-    // TODO: pass liked name by param and unificate
-    findAndCheckLikesPlaylist = (uid, id) => {
-        return normalizeDBQuery(
-            Models[this.type].find({ _id: uid, playlistsLikes: { $in: [id] } })
-        );
-    };
-
-    findAndCheckLikesSongs = (uid, id) => {
-        return normalizeDBQuery(
-            Models[this.type].find({ _id: uid, songsLikes: { $in: [id] } })
-        );
-    };
-
-    findAndCheckFollowers = (uid, id) => {
-        return normalizeDBQuery(
-            Models[this.type].find({ _id: uid, following: { $in: [id] } })
-        );
-    };
-
     findOneAndUpdate = (filter, body, option = { new: true }) => {
         return normalizeDBQuery(
             Models[this.type].findOneAndUpdate(filter, body, option)

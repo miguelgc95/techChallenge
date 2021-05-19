@@ -29,6 +29,7 @@ export function makeRequest(
         Accept: 'application/json',
     }
 ) {
+    console.log(baseURL);
     return async function request({
         url = '/',
         requestMethod = 'GET',

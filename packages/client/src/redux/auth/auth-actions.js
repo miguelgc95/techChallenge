@@ -52,13 +52,11 @@ export function signUpWithEmailRequest(userInfo) {
                 email,
                 password
             );
-            console.log(user);
 
             const authorization = {
                 Authorization: `Bearer ${user.za}`,
             };
-            console.log(authorization);
-
+            console.log(body);
             const { data } = await api.signUp(authorization, body);
             dispatch(signUpSuccess(data.data));
         } catch (error) {
