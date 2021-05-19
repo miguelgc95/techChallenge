@@ -1,4 +1,4 @@
-import config from '../config/index.js';
+import config from '../src/config/index.js.js';
 
 function errorMiddleware(err, req, res, next) {
     config.logger.debug('Error Handler Middleware: ');

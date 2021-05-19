@@ -16,7 +16,7 @@ class Repository {
 
     findAndPopulate = (filter, toPopulate, populateFilter = []) => {
         return normalizeDBQuery(
-            Models[this.type].find(filter).populate(toPopulate, populateFilter),
+            Models[this.type].find(filter).populate(toPopulate, populateFilter)
         );
     };
 
@@ -28,13 +28,13 @@ class Repository {
         return normalizeDBQuery(
             Models[this.type]
                 .findOne(filter, '-__v')
-                .populate(toPopulate, populateFilter),
+                .populate(toPopulate, populateFilter)
         );
     };
 
     findOneLean = filter => {
         return normalizeDBQuery(
-            Models[this.type].findOne(filter, '-__v').lean(),
+            Models[this.type].findOne(filter, '-__v').lean()
         );
     };
 
@@ -45,25 +45,25 @@ class Repository {
     // TODO: pass liked name by param and unificate
     findAndCheckLikesPlaylist = (uid, id) => {
         return normalizeDBQuery(
-            Models[this.type].find({ _id: uid, playlistsLikes: { $in: [id] } }),
+            Models[this.type].find({ _id: uid, playlistsLikes: { $in: [id] } })
         );
     };
 
     findAndCheckLikesSongs = (uid, id) => {
         return normalizeDBQuery(
-            Models[this.type].find({ _id: uid, songsLikes: { $in: [id] } }),
+            Models[this.type].find({ _id: uid, songsLikes: { $in: [id] } })
         );
     };
 
     findAndCheckFollowers = (uid, id) => {
         return normalizeDBQuery(
-            Models[this.type].find({ _id: uid, following: { $in: [id] } }),
+            Models[this.type].find({ _id: uid, following: { $in: [id] } })
         );
     };
 
     findOneAndUpdate = (filter, body, option = { new: true }) => {
         return normalizeDBQuery(
-            Models[this.type].findOneAndUpdate(filter, body, option),
+            Models[this.type].findOneAndUpdate(filter, body, option)
             /* .populate('likes') */
         );
     };
@@ -73,12 +73,12 @@ class Repository {
         body,
         option = { new: true },
         toPopulate,
-        populateFilter,
+        populateFilter
     ) => {
         return normalizeDBQuery(
             Models[this.type]
                 .findByIdAndUpdate(filter, body, option)
-                .populate(toPopulate, populateFilter),
+                .populate(toPopulate, populateFilter)
             /* .populate('likes') */
         );
     };

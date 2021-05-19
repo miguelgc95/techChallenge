@@ -13,7 +13,7 @@ import {
     deleteSongByName,
     likeSong,
     patchSong,
-} from '../../controllers/song-controller.js.js';
+} from '../../controllers/song-controller.js';
 
 const songRouter = Router();
 
