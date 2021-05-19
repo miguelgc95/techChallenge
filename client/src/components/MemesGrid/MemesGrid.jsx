@@ -10,8 +10,8 @@ export default function MemesGrid() {
     const { giphyMemes, offset } = useSelector(state => state.memes);
 
     useEffect(() => {
-        dispatch(getGiphys(offset));
-    }, [dispatch, offset]);
+        dispatch(getGiphys(offset)); // eslint-disable-next-line
+    }, [dispatch]);
 
     const scrollCheck = event => {
         const bottom =
