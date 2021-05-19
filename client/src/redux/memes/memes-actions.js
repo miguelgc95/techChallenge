@@ -15,11 +15,11 @@ export const memesRequestError = error => ({
     error,
 });
 
-export function getGiphys() {
+export function getGiphys(offset) {
     return async function giphyMemesThunk(dispatch) {
         dispatch(memesRequest());
         try {
-            const momardos = await getMemes();
+            const momardos = await getMemes(offset);
             dispatch(memesSucces(momardos.data.data));
         } catch (error) {
             dispatch(memesRequestError(error.message));

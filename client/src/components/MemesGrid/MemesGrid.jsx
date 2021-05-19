@@ -10,21 +10,19 @@ export default function MemesGrid() {
     // const [query, setQuery] = useState('');
     // useLazyLoading(query);
 
-    const giphyMemes = useSelector(state => state.memes.giphyMemes);
+    const { giphyMemes, offset } = useSelector(state => state.memes);
 
     useEffect(() => {
-        dispatch(getGiphys());
+        dispatch(getGiphys(offset));
     }, [dispatch]);
 
     const scrollCheck = event => {
-        console.log(event.target.scrollHeight);
-        console.log(event.target.scrollTop);
-        console.log(event.target.clientHeight);
         const bottom =
             event.target.scrollHeight - event.target.scrollTop <
             event.target.clientHeight;
         if (bottom) {
-            console.log('At The Bottom'); //Add in what you want here
+            console.log('At The Bottom');
+            dispatch(getGiphys(offset));
         }
     };
 

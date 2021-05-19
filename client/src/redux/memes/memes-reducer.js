@@ -4,6 +4,7 @@ const memesInitialSatate = {
     loading: false,
     error: null,
     giphyMemes: [],
+    offset: 0,
 };
 
 const memesReducer = (state = memesInitialSatate, action) => {
@@ -19,7 +20,9 @@ const memesReducer = (state = memesInitialSatate, action) => {
                 ...state,
                 loading: false,
                 error: false,
-                giphyMemes: [...payload, state.giphyMemes.flat()],
+                offset: state.offset + 12,
+                giphyMemes: [...state.giphyMemes, ...payload],
+                // giphyMemes: [...payload],
             };
         case memesTypes.MEMES_ERROR:
             return {
