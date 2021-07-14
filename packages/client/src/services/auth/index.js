@@ -4,7 +4,7 @@ export {
     logInWithEmailAndPassword,
     signUpWithEmailAndPassword,
     sendPasswordResetEmail,
-    signOut,
+    logOut,
     getCurrentUserToken,
     getCurrentUserEmail,
     getCurrentUser,

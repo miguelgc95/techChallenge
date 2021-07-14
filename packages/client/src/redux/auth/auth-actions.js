@@ -1,6 +1,7 @@
 import * as AuthTypes from './auth-types';
 import api from '../../api';
 import * as auth from '../../services/auth';
+import { resetStoreAndLogOut } from '../rootReducer';
 
 export const signUpRequest = () => ({
     type: AuthTypes.SIGN_UP_REQUEST,
@@ -82,5 +83,25 @@ export function logInWithEmailRequest(email, password) {
             console.log(error.message);
             dispatch(signUpError(error.message));
         }
+    };
+}
+
+export function logoutInNavbar() {
+    return async function logoutInNavbarThunk(dispatch) {
+        dispatch(logOutRequest());
+
+        const token = await auth.getCurrentUserToken();
+
+        const response = await api.logOut({
+            Authorization: `Bearer ${token}`,
+        });
+
+        if (response.errorMessage) {
+            return dispatch(logOutError(response.errorMessage));
+        }
+
+        auth.logOut();
+        dispatch(resetStoreAndLogOut());
+        return dispatch(logOutSuccess());
     };
 }
