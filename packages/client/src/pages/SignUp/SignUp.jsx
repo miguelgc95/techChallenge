@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { useForm } from 'react-hook-form';
-import { NavLink } from 'react-router-dom';
-import { LOGIN } from '../../routes';
+import { NavLink, Redirect } from 'react-router-dom';
+import { HOME, LOGIN } from '../../routes';
 
 import { signUpWithEmailRequest } from '../../redux/auth/auth-actions';
 
@@ -19,6 +19,8 @@ function SignUp() {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState('');
 
+    const { isAuthenticated } = useSelector(store => store.auth);
+
     const tryToSubmit = e => {
         dispatch(
             signUpWithEmailRequest({
@@ -28,6 +30,10 @@ function SignUp() {
             })
         );
     };
+
+    if (isAuthenticated) {
+        return <Redirect to={HOME} />;
+    }
 
     return (
         <>
