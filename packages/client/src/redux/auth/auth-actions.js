@@ -48,7 +48,7 @@ export function signUpWithEmailRequest(userInfo) {
         try {
             const { email, password, ...body } = userInfo;
 
-            const { user } = await auth.singUpWithEmailAndPassword(
+            const { user } = await auth.signUpWithEmailAndPassword(
                 email,
                 password
             );
@@ -59,6 +59,27 @@ export function signUpWithEmailRequest(userInfo) {
             const { data } = await api.signUp(authorization, body);
             dispatch(signUpSuccess(data.data));
         } catch (error) {
+            dispatch(signUpError(error.message));
+        }
+    };
+}
+
+export function logInWithEmailRequest(email, password) {
+    return async function loginThunk(dispatch) {
+        dispatch(signUpRequest());
+        try {
+            const response = await auth.logInWithEmailAndPassword(
+                email,
+                password
+            );
+
+            const authorization = {
+                Authorization: `Bearer ${response.user.za}`,
+            };
+            const { data } = await api.signUp(authorization);
+            dispatch(signUpSuccess(data.data));
+        } catch (error) {
+            console.log(error.message);
             dispatch(signUpError(error.message));
         }
     };

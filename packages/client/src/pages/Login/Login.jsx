@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { useForm } from 'react-hook-form';
-import { NavLink } from 'react-router-dom';
-import { SIGN_UP } from '../../routes';
+import { NavLink, Redirect } from 'react-router-dom';
+import { HOME, SIGN_UP } from '../../routes';
+
+import { logInWithEmailRequest } from '../../redux/auth/auth-actions';
 
 function Login() {
     const {
@@ -16,15 +18,16 @@ function Login() {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState('');
 
+    const { isAuthenticated } = useSelector(store => store.auth);
+
     const tryToSubmit = e => {
         // e.preventDefault(); // I think there is no need to preventDefault when using useForm
-        // dispatch(
-        //     login({
-        //         email,
-        //         password,
-        //     })
-        // );
+        dispatch(logInWithEmailRequest(email, password));
     };
+
+    if (isAuthenticated) {
+        return <Redirect to={HOME} />;
+    }
 
     return (
         <>

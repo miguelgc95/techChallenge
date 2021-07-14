@@ -18,8 +18,8 @@ const AuthReducer = (state = AuthInitialState, action) => {
         case AuthTypes.SIGN_UP_REQUEST: {
             return {
                 ...state,
-                isSigningUp: true,
                 signUpError: null,
+                isSigningUp: true,
             };
         }
         case AuthTypes.SIGN_UP_ERROR: {
